@@ -103,15 +103,15 @@ text:
   index:
     coming_soon: 'Coming soon...'
   contact:
-    email:    'Email Address'
-    content:  'What would you like to say?'
-    subject:  'New submission!'
-    submit:   'Say Hello'
+    email:    '邮件地址'
+    content:  '内容'
+    subject:  '你好'
+    submit:   '你好'
     ajax:
       sending:  'sending..'
       sent:     'Message sent!'
       error:    'Error!'
-  thanks: 'Thanks for contacting us. We will reply as soon as possible.'
+  thanks: '感谢你的沟通。'
   og_locale: 'en_US'
 
 # Build settings
