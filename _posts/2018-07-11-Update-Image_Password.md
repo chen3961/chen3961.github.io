@@ -12,15 +12,15 @@ categories: OpenStack Image
 
 其实通过简单的virt工具可以简单的修改镜像root的密码：
 
-···
+```shell
     virt-customize -a CentOS-7-x86_64-GenericCloud.qcow2 --root-password password:{new_password}
-···
+```
 
 这样使用新的镜像就有root密码了。
 
 本地Linux能够使用virt-customize命令：需要安装libvirt，libguestfs-tools包，同时需要libvirtd服务启动。
 
-···
+```shell
     yum install -y libvirt libguestfs-tools
     systemctl start libvirtd
-···
+```
