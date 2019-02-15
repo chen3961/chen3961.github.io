@@ -10,7 +10,7 @@ categories: Ansbile
 
 但是在运行Ansible playbook执行过程中，有一些任务却无法自动执行，导致自动执行的脚本因为等待用户输入或者超时失败，使得某些场景下“发射后不管”的体验不是很好。这里总结一些不能自动执行的操作机解决方法，以减少异常执行终端的干扰。
 
-1. **添加SSH Key Fingerprint**
+### 添加SSH Key Fingerprint
 
 在ansible通过ssh首次访问目标主机时，及时配置了登陆私钥或者密码，仍然需要将目标主机的SSH Key Fingerprint添加到当前用户的.ssh/known_hosts文件中。如果这个文件中不存在这个Fingerprint的话，会弹出提示要求用户确认，在ansible的执行过程中也会弹出提示。
 
@@ -30,7 +30,7 @@ categories: Ansbile
     host_key_checking = False
 ```
 
-2. **访问新的repo**
+### 访问新的repo
 
 如果playbook中存在yum操作，如果yum源中存在新的或者动态repo源，会通过gpg校验repo源的repodata.xml文件。在手动执行yum命令的过程中，会提示用户确认导入pgp文件，但是在ansible yum任务中无法配置自动导入文件，会导致访问repo源失败从而导致任务失败。
 
