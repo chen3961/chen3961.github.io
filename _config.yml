@@ -1,8 +1,8 @@
 # Site settings
-title:       呀哈哈的日志
+title:       呀哈哈的咿咿呀呀
 email:       chen3961@qq.com
 author:      陈哲
-description: "聚沙成塔"
+description: "东施效颦、邯郸学步、照猫画虎、鹦鹉学舌"
 baseurl:     ""
 url:         "https://chen3961.github.io"
 date_format: "%b %-d, %Y"
@@ -119,7 +119,7 @@ markdown:     kramdown
 redcarpet:
   extensions: ['smart', 'tables', 'with_toc_data']
 permalink:    pretty
-paginate:     4
+paginate:     10
 sass:
   style: compressed
 plugins:
