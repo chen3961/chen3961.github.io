@@ -2,11 +2,10 @@
   padding-top: $space-1;
   padding-bottom: $space-2;
   background: #00011f url(https://nats.io/img/header-background.png) repeat-x top center;
-  color: #ffffff
 }
 
 .site-header a {
-  color: #333;
+  color: #fff;
   font-size: $h3;
   font-weight: 300;
   background-image: none;
@@ -21,15 +20,15 @@
 }
 
 .site-header nav a {
-  color: #666;
+  color: #fff;
 }
 
 .site-header nav a:hover,
 .site-header nav a:focus,
 .site-header nav a:active {
-  color: #444;
+  color: #404f78;
   opacity: 1;
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #404f78;
 }
 
 .site-nav a + a {
