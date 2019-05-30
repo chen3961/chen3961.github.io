@@ -3,7 +3,7 @@ layout:     post
 title:      一些好用的素材网站
 date:       2019-05-20
 summary:    收录一些好用的素材网站，统一访问入口。
-categories: 素材,前端
+categories: asset
 ---
 
 ### [ClipArtMax](https://www.clipartmax.com/)
