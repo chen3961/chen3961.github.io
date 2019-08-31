@@ -19,3 +19,11 @@ categories: asset
 
 非常多的图片，无水印，无版权要求。免费下载。比Shutterstock更好的是**免注册**，而且网站有**中文**支持。就是速度稍微有点慢。
 [https://pixabay.com/](https://pixabay.com/)
+
+### [Slides Carnival](https://www.slidescarnival.com/)
+
+非常好的演示文档模板下载网站。
+
+模板里面的内容很丰富。优点再强调一下：**直接下载**，**直接下载**，**直接下载**。
+
+
