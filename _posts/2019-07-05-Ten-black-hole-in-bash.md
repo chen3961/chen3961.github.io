@@ -62,15 +62,18 @@ Hello world
     这样的逻辑在写程序时不出问题就见鬼了。
     
 3.  写一个正确的带逻辑运算符的判断条件吧
+    
     假设条件是这样的：已当前的文件名的文件存在且文件名以“aaa”开头，或者文件名以“bbb”结尾并且文件名不能是“aaabbb”。
     
     想当然的写法是这样：
+    
 ```bash
 # 这是错的
 [ -f ${filname} ] && （ [ ${filename} =~ "aaa.*" ] || [ ${filename} =~ ".*bbb"] ） && [ ${filename} != "aaabbb" ]
 
 ```
    搜索半天后，不断试错，终于修复完所有语法错误后，写出来是这样的：
+   
 ```bash
 # 这是错的
 [ -f ${filname} ] && [ ${filename} =~ aaa* ] || [ ${filename} =~ .*bbb ] && [ ${filename} != "aaabbb" ]
