@@ -24,6 +24,6 @@ categories: asset
 
 非常好的演示文档模板下载网站。
 
-模板里面的内容很丰富。优点再强调一下：**直接下载**，**直接下载**，**直接下载**。
+模板里面的内容很丰富。优点再强调一下：**直接下载**，**直接下载**，**直接下载**。[https://www.slidescarnival.com/](https://www.slidescarnival.com/)
 
 
