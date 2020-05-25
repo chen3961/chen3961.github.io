@@ -125,4 +125,61 @@ echo ${a}
    
    别跟我说shell是一种编程语言。
     
+5.  弄不清楚作用域的环境变量
+    shell中的变量还是很简单的，只有两种:
+    * 全局变量。默认的都是全局变量，可以在程序的所有地方访问
+    * 函数本地变量，在变量前加local修饰，在函数体内定义，只能在函数体内访问
+```bash
+function verify_var {
+local var_a="var_a"
+var_b="var_b"
+}
+echo ${var_a}_${var_b}   # print _var_b
+```
+   bash中复杂的环境变量主要出现在各种bash脚本相互调用，及export，source，sudo等各种命令切换导致的环境变量一团糟。
+```bash
+# main.sh
+foo="Global_Foo"
+bash sub1.sh
+echo "main.sh:${foo}"
+----------
+# sub1.sh
+echo "sub1.sh:${foo}"
+```
+   上面的脚本，在main.sh里面定义了一个变量foo，在sub1.sh中调用了一次。发现在sub1.sh中该变量不存在
+```bash
+bash main.sh
+# print
+sub1.sh
+mains.sh:Global_Foo
+```
+   原因是在shell中一个全局变量只定义在当前shell进程中，如果另外一个shell是无法访问到的。即使另外一个shell进程是当前进程的子进程，也无法访问。
+   当然，如果要访问这个变量的话，也有办法，就是加上export命令，这样这个shell的子进程就可以访问了。当然是这个shell的子进程。如果不是子进程也是不能访问的。
+```bash
+# use export
+export foo="Global_Foo"
 
+# bash main.sh output
+sub1.sh:Global_Foo
+mains.sh:Global_Foo
+```
+   通过export的形式，虽然子进程可以访问环境变量，但是父进程和子进程使用的环境变量并不是同一个对象。
+```bash
+# main.sh
+export foo="Global_Foo"
+bash sub1.sh
+echo "main.sh:${foo}"
+----------
+# sub1.sh
+export foo="local_Foo"
+echo "sub1.sh:${foo}"
+
+# bash main.sh output
+sub1.sh:local_Foo
+main.sh:Global_Foo
+
+```  
+   通过export定义的变量会是在当前进程。例如当前的用户会话下通过export定义变量，那么在当前用户执行多个bash脚本那么都可以访问这个变量。因为这些脚本都是当前shell下的子进程。同时如果在开一个回会话，用户重新登陆或者切换会话，则当前的变量就不生效了。为了解决这个问题，一般都在。~/.bash.rc文件中添加变量的定义，这项在用户会话初始化时自动完成加载。
+   那么当然，如果在shell脚本中使用了类似sudo的命令，那么当前export的变量就又不生效了。当然可以有解决方案。就是在sudo后面加“-E”参数，这样回把当前环境变量加载到sudo。
+   shell脚本的环境变量用起来非常酸爽。如果跑一个脚本发现环境变量不对，千万不要奇怪。
+   
