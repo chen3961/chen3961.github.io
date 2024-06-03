@@ -62,3 +62,11 @@ ObjectMapper ob = new ObjectMapper();
 Map<String, Object> val = ob.readValue("{'a':1, 'b':2}", Map.class);
 int aValue = val.get("a"); 
 ```
+
+__Double.MIN_VALUE__
+再一次被Double坑到，自己臆想着java里的Double的最大值和最小值应该史Double类型能够表达的最大值和最小值，按说这个最小值应该是个负数。可是JDK里面偏偏不这么定义。
+Double.MIN_VALUE表示的居然是一个大于零的最小数，是Double类能够表示的精度最大的一个数，并且大于0。现在都不知道这个数有什么作用，用来判断是不是等于0也用不着这样吧。
+总之记住下次再程序中想要定义一个最小的数，一定要用
+```java
+-Double.MAX_VALUE
+```
