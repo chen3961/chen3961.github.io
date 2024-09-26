@@ -49,7 +49,7 @@ public class BeanData {
         dataMap.put(dataA, "1");
         assertTrue(dataMap.containsKey(dataARef));
         dataA1.setKey("A1-");
-        assertFalse(dataMap.containsKey(dataARef)); \\这里会发现data的引用已经无法匹配到原先放进hashmap的对象了
+        assertFalse(dataMap.containsKey(dataARef)); //这里会发现data的引用已经无法匹配到原先放进hashmap的对象了
 
         BeanData dataB = new BeanData();
         dataB.setKey("B");
